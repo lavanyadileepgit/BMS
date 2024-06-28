@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Booking Successful";
+}
+
+<h2>Booking successful!</h2>
+
+<p>Your seat has been successfully booked.</p>
+
+<button onclick="redirectToMainPage()">Back to List</button>
+<button onclick="redirectToFeedback()">Give Feedback</button>
+
+<script>
+    function redirectToMainPage() {
+        window.location.href = '@Url.Action("Index", "usermainpage")';
+    }
+
+    function redirectToFeedback() {
+        window.location.href = '@Url.Action("Create", "UserFeedbacks")';
+    }
+</script>

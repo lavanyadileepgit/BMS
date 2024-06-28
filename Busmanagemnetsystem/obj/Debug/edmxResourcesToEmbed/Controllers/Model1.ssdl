@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BusManagementSystemsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AvailableSeats">
+    <Key>
+      <PropertyRef Name="BusID" />
+    </Key>
+    <Property Name="BusID" Type="int" Nullable="false" />
+    <Property Name="TotalSeats" Type="int" />
+    <Property Name="AvailableSeats" Type="int" />
+  </EntityType>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="From_Station" Type="varchar" MaxLength="20" />
+    <Property Name="To_Station" Type="varchar" MaxLength="20" />
+    <Property Name="Date" Type="date" />
+    <Property Name="BusID" Type="int" />
+    <Property Name="SeatNumber" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="BookingHistory">
+    <Key>
+      <PropertyRef Name="BookingHistoryID" />
+    </Key>
+    <Property Name="BookingHistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="TicketID" Type="int" />
+    <Property Name="BookingDate" Type="date" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Bus">
+    <Key>
+      <PropertyRef Name="BusID" />
+    </Key>
+    <Property Name="BusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BusName" Type="varchar" MaxLength="30" />
+    <Property Name="Capacity" Type="int" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Source" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Destination" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Distance" Type="int" Nullable="false" />
+    <Property Name="DepartureTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="ArrivalTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="fare" Type="int" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="DriverID" />
+    </Key>
+    <Property Name="DriverID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="BusID" Type="int" />
+    <Property Name="BusNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactNumber" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="FeedbackID" />
+    </Key>
+    <Property Name="FeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Comments" Type="varchar" MaxLength="1000" />
+    <Property Name="Rating" Type="int" />
+  </EntityType>
+  <EntityType Name="Maintenance">
+    <Key>
+      <PropertyRef Name="MaintenanceID" />
+    </Key>
+    <Property Name="MaintenanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusID" Type="int" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Seat">
+    <Key>
+      <PropertyRef Name="SeatID" />
+    </Key>
+    <Property Name="SeatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusID" Type="int" />
+    <Property Name="SeatNumber" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="IsAvailable" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="TicketID" />
+    </Key>
+    <Property Name="TicketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="PassengerName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SeatNumber" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NumberOfSeats" Type="int" Nullable="false" />
+    <Property Name="BusID" Type="int" />
+    <Property Name="BusName" Type="varchar" MaxLength="30" />
+    <Property Name="BookingDate" Type="date" Nullable="false" />
+    <Property Name="Fare" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContactNumber" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserProfileID" />
+    </Key>
+    <Property Name="UserProfileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="255" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="ZipCode" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK__Available__BusID__5165187F">
+    <End Role="Bus" Type="Self.Bus" Multiplicity="1" />
+    <End Role="AvailableSeats" Type="Self.AvailableSeats" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Bus">
+        <PropertyRef Name="BusID" />
+      </Principal>
+      <Dependent Role="AvailableSeats">
+        <PropertyRef Name="BusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Booking__BusID__5535A963">
+    <End Role="Bus" Type="Self.Bus" Multiplicity="0..1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bus">
+        <PropertyRef Name="BusID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="BusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Booking__UserID__5441852A">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingHi__Ticke__619B8048">
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="0..1" />
+    <End Role="BookingHistory" Type="Self.BookingHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ticket">
+        <PropertyRef Name="TicketID" />
+      </Principal>
+      <Dependent Role="BookingHistory">
+        <PropertyRef Name="TicketID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingHi__UserI__60A75C0F">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="BookingHistory" Type="Self.BookingHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="BookingHistory">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Driver__BusID__3B75D760">
+    <End Role="Bus" Type="Self.Bus" Multiplicity="0..1" />
+    <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bus">
+        <PropertyRef Name="BusID" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="BusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__UserID__46E78A0C">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maintenan__BusID__3E52440B">
+    <End Role="Bus" Type="Self.Bus" Multiplicity="0..1" />
+    <End Role="Maintenance" Type="Self.Maintenance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bus">
+        <PropertyRef Name="BusID" />
+      </Principal>
+      <Dependent Role="Maintenance">
+        <PropertyRef Name="BusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Seat__BusID__5DCAEF64">
+    <End Role="Bus" Type="Self.Bus" Multiplicity="0..1" />
+    <End Role="Seat" Type="Self.Seat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bus">
+        <PropertyRef Name="BusID" />
+      </Principal>
+      <Dependent Role="Seat">
+        <PropertyRef Name="BusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ticket__BusID__440B1D61">
+    <End Role="Bus" Type="Self.Bus" Multiplicity="0..1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bus">
+        <PropertyRef Name="BusID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="BusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ticket__UserID__4316F928">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProfi__UserI__4AB81AF0">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BusManagementSystemsModelStoreContainer">
+    <EntitySet Name="AvailableSeats" EntityType="Self.AvailableSeats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BookingHistory" EntityType="Self.BookingHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bus" EntityType="Self.Bus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Maintenance" EntityType="Self.Maintenance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Seat" EntityType="Self.Seat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Available__BusID__5165187F" Association="Self.FK__Available__BusID__5165187F">
+      <End Role="Bus" EntitySet="Bus" />
+      <End Role="AvailableSeats" EntitySet="AvailableSeats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Booking__BusID__5535A963" Association="Self.FK__Booking__BusID__5535A963">
+      <End Role="Bus" EntitySet="Bus" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Booking__UserID__5441852A" Association="Self.FK__Booking__UserID__5441852A">
+      <End Role="User" EntitySet="User" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingHi__Ticke__619B8048" Association="Self.FK__BookingHi__Ticke__619B8048">
+      <End Role="Ticket" EntitySet="Ticket" />
+      <End Role="BookingHistory" EntitySet="BookingHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingHi__UserI__60A75C0F" Association="Self.FK__BookingHi__UserI__60A75C0F">
+      <End Role="User" EntitySet="User" />
+      <End Role="BookingHistory" EntitySet="BookingHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Driver__BusID__3B75D760" Association="Self.FK__Driver__BusID__3B75D760">
+      <End Role="Bus" EntitySet="Bus" />
+      <End Role="Driver" EntitySet="Driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__UserID__46E78A0C" Association="Self.FK__Feedback__UserID__46E78A0C">
+      <End Role="User" EntitySet="User" />
+      <End Role="Feedback" EntitySet="Feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maintenan__BusID__3E52440B" Association="Self.FK__Maintenan__BusID__3E52440B">
+      <End Role="Bus" EntitySet="Bus" />
+      <End Role="Maintenance" EntitySet="Maintenance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Seat__BusID__5DCAEF64" Association="Self.FK__Seat__BusID__5DCAEF64">
+      <End Role="Bus" EntitySet="Bus" />
+      <End Role="Seat" EntitySet="Seat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ticket__BusID__440B1D61" Association="Self.FK__Ticket__BusID__440B1D61">
+      <End Role="Bus" EntitySet="Bus" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ticket__UserID__4316F928" Association="Self.FK__Ticket__UserID__4316F928">
+      <End Role="User" EntitySet="User" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProfi__UserI__4AB81AF0" Association="Self.FK__UserProfi__UserI__4AB81AF0">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

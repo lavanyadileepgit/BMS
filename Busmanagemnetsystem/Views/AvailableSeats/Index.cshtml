@@ -1,0 +1,168 @@
+<<<<<<< HEAD
+﻿
+@model IEnumerable<Busmanagemnetsystem.Controllers.AvailableSeat>
+=======
+﻿@model IEnumerable<Busmanagemnetsystem.Controllers.AvailableSeat>
+>>>>>>> f5a9bced78bcf858fef19e20276d72583d968c16
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #343a40;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p a {
+            color: #007bff;
+            font-size: 1.2em;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+            p a:hover {
+                background-color: #0056b3;
+            }
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 1rem;
+            background-color: transparent;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+            .table th,
+            .table td {
+                padding: 12px;
+                text-align: left;
+                border-top: 1px solid #dee2e6;
+            }
+
+            .table th {
+                background-color: #343a40;
+                color: white;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .table tr:hover {
+                background-color: #e9ecef;
+            }
+
+            .table a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                .table a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Available Seats Index</h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalSeats)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AvailableSeats)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bus.BusNumber)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalSeats)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AvailableSeats)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bus.BusNumber)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.BusID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.BusID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.BusID })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
+=======
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalSeats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AvailableSeats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bus.BusNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalSeats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AvailableSeats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bus.BusNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BusID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BusID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BusID })
+        </td>
+    </tr>
+}
+
+</table>
+>>>>>>> f5a9bced78bcf858fef19e20276d72583d968c16

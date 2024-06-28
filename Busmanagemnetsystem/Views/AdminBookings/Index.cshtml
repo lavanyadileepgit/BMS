@@ -1,0 +1,204 @@
+<<<<<<< HEAD
+﻿
+@model IEnumerable<Busmanagemnetsystem.Controllers.Booking>
+=======
+﻿@model IEnumerable<Busmanagemnetsystem.Controllers.Booking>
+>>>>>>> f5a9bced78bcf858fef19e20276d72583d968c16
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #343a40;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p a {
+            color: #007bff;
+            font-size: 1.2em;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+            p a:hover {
+                background-color: #0056b3;
+            }
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 1rem;
+            background-color: transparent;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+            .table th,
+            .table td {
+                padding: 12px;
+                text-align: left;
+                border-top: 1px solid #dee2e6;
+            }
+
+            .table th {
+                background-color: #343a40;
+                color: white;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .table tr:hover {
+                background-color: #e9ecef;
+            }
+
+            .table a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                .table a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Booking Index</h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.From_Station)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.To_Station)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SeatNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bus.BusNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User.Username)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.From_Station)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.To_Station)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SeatNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bus.BusNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.Username)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.BookingID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.BookingID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.BookingID })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
+=======
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.From_Station)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.To_Station)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeatNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bus.BusNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.From_Station)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.To_Station)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeatNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bus.BusNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Username)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookingID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookingID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookingID })
+        </td>
+    </tr>
+}
+
+</table>
+>>>>>>> f5a9bced78bcf858fef19e20276d72583d968c16

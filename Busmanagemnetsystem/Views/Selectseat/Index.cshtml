@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Busmanagemnetsystem.Controllers.Seat>
+
+@{
+    ViewBag.Title = "Select Seat";
+}
+
+<h2>Select Seat</h2>
+
+<div id="seat-selection">
+    @foreach (var seat in Model)
+    {
+        <div id="seat-@seat.SeatID" class="seat-box available">
+            <label>
+                @seat.SeatNumber
+                <input type="checkbox" name="selectedSeats" value="@seat.SeatID" />
+            </label>
+        </div>
+    }
+</div>
+
+<button id="book-btn" class="btn btn-primary">Book</button>
+
+<div id="confirm-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Are you sure you want to book these seats?</p>
+        <button id="confirm-book-btn" class="btn btn-success">Yes, Book</button>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('.seat-box').click(function () {
+                $(this).toggleClass('selected');
+            });
+
+            $('#book-btn').click(function () {
+                $('#confirm-modal').css('display', 'block');
+            });
+
+            $('.close').click(function () {
+                $('#confirm-modal').css('display', 'none');
+            });
+
+            $('#confirm-book-btn').click(function () {
+                var selectedSeats = $('.seat-box input:checked').map(function () {
+                    return $(this).val();
+                }).get();
+
+                if (selectedSeats.length > 0) {
+                    $.ajax({
+                        url: '@Url.Action("BookSeats", "Selectseat")',
+                        type: 'POST',
+                        data: { busId: @ViewBag.BusID, seatNumbers: selectedSeats },
+                        success: function (data) {
+                            if (data.success) {
+                                alert(data.message);
+                                window.location.href = '@Url.Action("Index" ,"BookingSuccesful")';
+                            } else {
+                                alert(data.message);
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+                } else {
+                    alert("Please select at least one seat.");
+                }
+            });
+        });
+    </script>
+}

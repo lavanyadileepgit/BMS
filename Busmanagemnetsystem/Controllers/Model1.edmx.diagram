@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="50197f86513d4db09dc7a68aaa4aa5a7" Name="Diagram1">
+        <EntityTypeShape EntityType="BusManagementSystemsModel.AvailableSeat" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusManagementSystemsModel.Booking" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusManagementSystemsModel.BookingHistory" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusManagementSystemsModel.Bus" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusManagementSystemsModel.Driver" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusManagementSystemsModel.Feedback" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusManagementSystemsModel.Maintenance" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusManagementSystemsModel.Seat" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusManagementSystemsModel.Ticket" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusManagementSystemsModel.User" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusManagementSystemsModel.UserProfile" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
+        <AssociationConnector Association="BusManagementSystemsModel.FK__Available__BusID__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="BusManagementSystemsModel.FK__Booking__BusID__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="BusManagementSystemsModel.FK__Booking__UserID__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="BusManagementSystemsModel.FK__BookingHi__Ticke__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="BusManagementSystemsModel.FK__BookingHi__UserI__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="BusManagementSystemsModel.FK__Driver__BusID__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="BusManagementSystemsModel.FK__Maintenan__BusID__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="BusManagementSystemsModel.FK__Seat__BusID__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="BusManagementSystemsModel.FK__Ticket__BusID__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="BusManagementSystemsModel.FK__Feedback__UserID__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="BusManagementSystemsModel.FK__Ticket__UserID__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="BusManagementSystemsModel.FK__UserProfi__UserI__4AB81AF0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

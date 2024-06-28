@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Busmanagemnetsystem.Controllers.AvailableSeat>
+
+@{
+    ViewBag.Title = "Available Seats";
+}
+
+<h2>Available Seats</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Bus ID
+        </th>
+        <th>
+            Total Seats
+        </th>
+        <th>
+            Available Seats
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableSeats)
+            </td>
+            <td>
+                <a href="@Url.Action("Index", "SelectSeat", new { busId = item.BusID })" class="btn btn-primary">Select Seat</a>
+            </td>
+        </tr>
+    }
+
+</table>

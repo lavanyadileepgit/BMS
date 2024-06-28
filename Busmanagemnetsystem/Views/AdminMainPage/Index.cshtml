@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Main Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 18px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        li {
+            width: 250px; /* Increased width */
+            height: 120px; /* Increased height */
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #f3ff8c; /* Lighter color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+            word-wrap: break-word; /* Wrap long words */
+        }
+
+            li:hover {
+                background-color: #e5ff78; /* Darker shade of the lighter color */
+            }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            margin-right: 5px; /* Adjusted margin for better alignment */
+            font-size: 24px;
+        }
+
+        a:hover {
+            color: #007bff; /* Updated link hover color */
+        }
+
+        /* Logout button styles (added for completeness) */
+        .logout-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #007bff;
+            border: 2px solid #007bff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+            .logout-button:hover {
+                color: #fff;
+                background-color: #007bff;
+            }
+
+        /* Confirmation dialog styles (added for completeness) */
+        .confirmation-dialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            width: 300px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .confirmation-message {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .confirmation-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .confirmation-button {
+            margin: 0 10px;
+            padding: 5px 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+            .confirmation-button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Bus Management System</h1>
+        <h3>Admin Dashboard</h3>
+        <ul>
+            <li><a href="/Buses/Index">Manage Buses</a></li>
+            <li><a href="/Drivers/Index">Manage Drivers</a></li>
+            <li><a href="/Maintenances/Index">Manage Maintenance</a></li>
+            <li><a href="/AvailableSeats/Index">Manage Available Seats</a></li>
+            <li><a href="/AdminBookings/Index">Manage Bookings</a></li>
+            <li><a href="/BookingHistories/Index">Manage Booking Histories</a></li>
+            <li><a href="/Feedbacks/Index">Manage Feedbacks</a></li>
+            @*<li><a href="/Payments/Index">Manage Payments</a></li>*@
+            <li><a href="/Tickets/Index">Manage Tickets</a></li>
+        </ul>
+    </div>
+    <!-- Logout button -->
+    <div class="logout-button" onclick="showConfirmationDialog()">Logout</div>
+
+    <!-- Confirmation dialog -->
+    <div class="confirmation-dialog" id="confirmationDialog">
+        <div class="confirmation-message">Are you sure you want to logout?</div>
+        <div class="confirmation-buttons">
+            <button class="confirmation-button" onclick="confirmLogout()">Yes</button>
+            <button class="confirmation-button" onclick="hideConfirmationDialog()">No</button>
+        </div>
+    </div>
+
+    <!-- JavaScript for logout confirmation -->
+    <script>
+        function showConfirmationDialog() {
+            document.getElementById('confirmationDialog').style.display = 'block';
+        }
+
+        function hideConfirmationDialog() {
+            document.getElementById('confirmationDialog').style.display = 'none';
+        }
+
+        function confirmLogout() {
+            window.location.href = '/Login/Login'; // Redirect to login page
+        }
+    </script>
+</body>
+</html>

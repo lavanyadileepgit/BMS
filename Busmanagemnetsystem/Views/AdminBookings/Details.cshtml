@@ -1,0 +1,66 @@
+﻿@model Busmanagemnetsystem.Controllers.Booking
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Booking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.From_Station)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.From_Station)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.To_Station)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.To_Station)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeatNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeatNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bus.BusNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bus.BusNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookingID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
